@@ -31,5 +31,10 @@ public class CourseService {
 
   public void changeFee(String studentName, int fee) {
     // TODO: 과제 구현 부분
+    List<Course> courseList = courseRepository.getCourseListByStudent(studentName);
+//    courseList.stream().peek(course -> course.setFee(fee));
+      for (Course course : courseList) {
+          course.setFee(fee);
+      }
   }
 }
